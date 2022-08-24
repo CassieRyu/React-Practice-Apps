@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
 import classes from "./Modal.module.css";
@@ -11,20 +10,10 @@ const ModalOverlay = props => {
     return (
         <div className={classes.modal}>
             <div className={classes.content}>{props.children}</div>
-=======
-import React from "react";
-import classes from "./Modal.module.css";
-
-const Modal = props => {
-    return (
-        <div className={classes.modal}>
-            
->>>>>>> ed16c5b9e24071d105f0ffd5608dcd1b64c5c596
         </div>
     );
 };
 
-<<<<<<< HEAD
 const portalElement = document.getElementById('overlays');
 
 const Modal = props => {
@@ -36,6 +25,4 @@ const Modal = props => {
     );
 };
 
-=======
->>>>>>> ed16c5b9e24071d105f0ffd5608dcd1b64c5c596
 export default Modal;
