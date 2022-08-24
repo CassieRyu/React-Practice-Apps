@@ -9,10 +9,13 @@ const Cart = props => {
     const cartContext = useContext(CartContext);
     const totalAmount = `$${cartContext.totalAmount.toFixed(2)}`;
     const hasItemInCart = cartContext.items.length > 0;
-    const AddItemInCartHandler = item => {
 
+    const AddItemInCartHandler = item => {
+        cartContext.addItem({...item, amount: 1});
     };
-    const removeItemInCartHandler = id => { };
+    const removeItemInCartHandler = id => {
+        cartContext.removeItem(id);
+     };
 
     const cartItems = <ul className={classes["cart-items"]}>
         {cartContext.items.map(item => (
@@ -21,8 +24,8 @@ const Cart = props => {
                 price={item.price}
                 amount={item.amount}
                 key={item.id}
-                onAdd={AddItemInCartHandler.bind(null, item.id)}
-                onRemove={removeItemInCartHandler.bind(null, item)}
+                onAdd={AddItemInCartHandler.bind(null, item)}
+                onRemove={removeItemInCartHandler.bind(null, item.id)}
             />
         )
 
