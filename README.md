@@ -11,3 +11,5 @@ Couple of React simple apps which used for practice.
 ![alt text](./Imgs/04-login-sample.gif)
 ## 05-Food-Order-App
 ![alt text](./Imgs/05-food-order-app.gif)
+## 06-Movie-Hub
+![alt text](./Imgs/06-Movie-Hub.gif)

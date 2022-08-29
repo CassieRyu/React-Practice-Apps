@@ -13,7 +13,7 @@ function App() {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch('https://react-practice-apps-b9377-default-rtdb.firebaseio.com/movies.json');
+      const response = await fetch('https://react-fake-address-default-rtdb.firebaseio.com/movies.json');
       if (!response.ok) {
         throw new Error('Something went wrong!');
       }
@@ -49,7 +49,7 @@ function App() {
   }, [fetchMoviesHandler]);
 
   async function addMovieHandler(movie) {
-    const response = await fetch('https://react-practice-apps-b9377-default-rtdb.firebaseio.com/movies.json', {
+    const response = await fetch('https://react-fake-address-default-rtdb.firebaseio.com/movies.json', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
