@@ -4,7 +4,7 @@ Practice with React for input validations and form submission validations.
 * Real time validation
 * Checked for touched or not
 * Enable submission when all fields pass validation
-* Related tech: useState, custome hooks
+* Related tech: useState, custome hooks, useReducer
 
 ## Available Scripts
 

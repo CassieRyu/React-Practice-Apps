@@ -1,4 +1,4 @@
-import useInput from "../hooks/user-input";
+import useInput from "../hooks/user-input-reducer";
 
 const isNotEmpty = value => value.trim() !== '';
 const emailValidRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
