@@ -2,6 +2,7 @@
 
 This is a simple React app with chose meals feature, utilize useState, useEffect, useReducer, useContext, useRef, etc React hooks.
 
+* Http request handling, loading state, error state handling
 * useState - update data/status and refresh components with latest data/status
 * useEffect - to add dependency change check (execute after component render)
 * useReducer - support complex states change in object (compared to useState)
