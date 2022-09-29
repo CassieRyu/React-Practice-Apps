@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import Card from "../UI/Card";
-import classes from "./AvailableMeals.module.css";
-import MealItem from "./MealItem/MealItem";
+import React, { useEffect, useState } from 'react';
+import Card from '../UI/Card';
+import classes from './AvailableMeals.module.css';
+import MealItem from './MealItem/MealItem';
 
 // const DUMMY_MEALS = [
 //     {
@@ -31,19 +31,20 @@ import MealItem from "./MealItem/MealItem";
 // ];
 
 const AvailableMeals = () => {
-
     const [meals, setMeals] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [httpError, setHttpError] = useState();
 
     useEffect(() => {
         const fetchMeals = async () => {
-            const response = await fetch('https://react-practice-apps-b9377-default-rtdb.firebaseio.com/meals');
+            const response = await fetch(
+                'https://react-practice-apps-b9377-default-rtdb.firebaseio.com/meals.json'
+            );
 
             if (!response.ok) {
                 throw new Error('Something went wrong!');
             }
-            const responseData = await response.json()
+            const responseData = await response.json();
 
             const loadedMeals = [];
             for (const key in responseData) {
@@ -51,17 +52,17 @@ const AvailableMeals = () => {
                     id: key,
                     name: responseData[key].name,
                     description: responseData[key].description,
-                    price: responseData[key].price
-                })
+                    price: responseData[key].price,
+                });
             }
             setMeals(loadedMeals);
             setIsLoading(false);
         };
 
-        fetchMeals().catch(error => {
+        fetchMeals().catch((error) => {
             setIsLoading(false);
             setHttpError(error.message);
-        })
+        });
     }, []);
 
     if (isLoading) {
@@ -69,7 +70,7 @@ const AvailableMeals = () => {
             <section className={classes.MealsLoading}>
                 <p>Loading...</p>
             </section>
-        )
+        );
     }
 
     if (httpError) {
@@ -77,14 +78,14 @@ const AvailableMeals = () => {
             <section className={classes.MealsError}>
                 <p>{httpError}</p>
             </section>
-        )
+        );
     }
 
     return (
         <section className={classes.meals}>
             <Card>
                 <ul>
-                    {meals.map(meal => (
+                    {meals.map((meal) => (
                         <MealItem
                             key={meal.id}
                             id={meal.id}
@@ -96,7 +97,7 @@ const AvailableMeals = () => {
                 </ul>
             </Card>
         </section>
-    )
-}
+    );
+};
 
 export default AvailableMeals;
