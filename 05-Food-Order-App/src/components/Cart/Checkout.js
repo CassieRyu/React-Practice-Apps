@@ -10,24 +10,28 @@ const Checkout = (props) => {
         value: nameInputValue,
         isValid: nameInputValidity,
         valueChangeHandler: nameChangeHandler,
+        inputBlurHandler: nameBlurHandler,
         reset: nameReset,
     } = useInput(isNotEmpty);
     const {
         value: streetInputValue,
         isValid: streetInputValidity,
         valueChangeHandler: streetChangeHandler,
+        inputBlurHandler: streetBlurHandler,
         reset: streetReset,
     } = useInput(isNotEmpty);
     const {
         value: postalCodeInputValue,
         isValid: postalCodeInputValidity,
         valueChangeHandler: postalCodeChangeHandler,
+        inputBlurHandler: postalCodeBlurHandler,
         reset: postalCodeReset,
     } = useInput(isFiveChars);
     const {
         value: cityInputValue,
         isValid: cityInputValidity,
         valueChangeHandler: cityChangeHandler,
+        inputBlurHandler: cityBlurHandler,
         reset: cityReset,
     } = useInput(isNotEmpty);
 
@@ -50,6 +54,13 @@ const Checkout = (props) => {
         cityReset();
     };
 
+    props.onConfirm({
+        name: nameInputValue,
+        street: streetInputValue,
+        city: cityInputValue,
+        postalCode: postalCodeInputValue,
+    });
+
     return (
         <form
             className={classes.form}
@@ -62,6 +73,7 @@ const Checkout = (props) => {
                     id="name"
                     value={nameInputValue}
                     onChange={nameChangeHandler}
+                    onBlur={nameBlurHandler}
                 />
                 {!nameInputValidity && <p>Please input a valid name.</p>}
             </div>
@@ -72,6 +84,7 @@ const Checkout = (props) => {
                     id="street"
                     value={streetInputValue}
                     onChange={streetChangeHandler}
+                    onBlur={streetBlurHandler}
                 />
                 {!streetInputValidity && <p>Please input a valid steert.</p>}
             </div>
@@ -82,6 +95,7 @@ const Checkout = (props) => {
                     id="postal"
                     value={postalCodeInputValue}
                     onChange={postalCodeChangeHandler}
+                    onBlur={postalCodeBlurHandler}
                 />
                 {!postalCodeInputValidity && (
                     <p>Please input a valid postal code (5 charactors).</p>
@@ -94,6 +108,7 @@ const Checkout = (props) => {
                     id="city"
                     value={cityInputValue}
                     onChange={cityChangeHandler}
+                    onBlur={cityBlurHandler}
                 />
                 {!cityInputValidity && <p>Please input a valid city name.</p>}
             </div>
